@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useState } from "react";
+import DataPicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "../datepicker.css";
+import { BsCalendar } from "react-icons/bs";
 
 const CheckOut = () => {
-  return <div>CheckOut</div>;
+  const [endDate, setEndDate] = useState(false);
+  return (
+    <div className="realative flex items-center justify-end h-full">
+      <div className="absolute z-10 pr-8">
+        <div>
+          <BsCalendar className="text-accent text-base" />
+        </div>
+      </div>
+      <DataPicker
+        className="w-full h-full"
+        selected={endDate}
+        placeholderText="Check out"
+        onChange={(date) => setEndDate(date)}
+      />
+    </div>
+  );
 };
 
 export default CheckOut;
